@@ -1,0 +1,18 @@
+*errors
+*more talkative try-catch errors
+*pack + pass parameters
+*tests
+*git + CI/CD
+*lowercase
+
+*git filter repo
+
+*DB operations own static file? or per subproject?
+
+nice-to-have:
+*SQLAlchemy
+*more pydantic like
+*solve imports
+*automatize requirements.txt
+
+*application data db (lang and other shit)
