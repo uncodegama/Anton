@@ -4,18 +4,18 @@ from pydantic import BaseModel
 from pydantic.typing import Optional
 
 
-class WeatherPredictionHourly(object):
-    def __init__(self, location, data, hourly, alerts):
+class WeatherForecastCurrent(object):
+    def __init__(self, location, data, current, alerts):
         self.location: str = location
         self.data = json.loads(data)
-        self.hourly = json.loads(hourly)
+        self.current = json.loads(current)
         self.alerts = json.loads(alerts)
 
 
-class WeatherPredictionHourlyModel(BaseModel):
+class WeatherForecastCurrentModel(BaseModel):
     location: str = "Brno"
     data: dict = {"lat": 49.1922, "lon": 16.6113, "timezone": "Europe/Prague", "timezone_offset": 7200}
-    hourly: list[dict] = {}
+    current: dict = {}
     alerts: Optional[dict] = {}
 
     class Config:

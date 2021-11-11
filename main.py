@@ -1,8 +1,7 @@
-from typing import Optional
 from fastapi import FastAPI
 
 from src.weatherapp.endpoints.endpoints import weather
-from src.database import create_db_file, check_timestamps_and_update_table
+from src.database import create_db_file
 from src.common import timer_run
 from src.static import UPDATE_TIME
 
@@ -15,7 +14,7 @@ app = FastAPI(
 app.include_router(weather)
 
 create_db_file()
-timer_run(UPDATE_TIME, c.call_open_weather_api_predictions)
+timer_run(UPDATE_TIME, c.call_open_weather_api_forecasts)
 
 # python -m uvicorn main:app --reload
 

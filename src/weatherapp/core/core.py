@@ -1,6 +1,7 @@
 import json
 import time
 import requests
+import traceback
 
 from src.database import perform_db_operation
 from src.constants import OPEN_WEATHER_MAP_API_KEY
@@ -10,7 +11,7 @@ from src.static import DATABASE_INSERT_INTO_TABLE_LOCATION
 from src.static import DATABASE_SELECT_ALL_TABLE_LOCATION
 
 
-def call_open_weather_api_predictions():
+def call_open_weather_api_forecasts() -> None:
     try:
         for loc, lat, lon in perform_db_operation(DATABASE_SELECT_ALL_TABLE_LOCATION):
             response = requests.get(
@@ -26,11 +27,12 @@ def call_open_weather_api_predictions():
                                       'alerts': 'null'}),
                                   int(time.time())))
 
-    except Exception as E:
-        print("call_open_weather_api_predictions(): " + str(E))
+    except Exception as e:
+        print("EXCEPTION: call_open_weather_api_forecasts(): " + str(e))
+        print(traceback.print_exc())
 
 
-def call_nominatim_api():
+def call_nominatim_api() -> None:
     try:
         for loc in LOCATIONS:
             response = requests.get(
@@ -38,11 +40,12 @@ def call_nominatim_api():
             perform_db_operation(DATABASE_INSERT_INTO_TABLE_LOCATION,
                                  (loc.get('loc_name'), response.json()[0]['lat'], response.json()[0]['lon']))
 
-    except Exception as E:
-        print("call_nominatim_api(): " + str(E))
+    except Exception as e:
+        print("EXCEPTION: call_nominatim_api(): " + str(e))
+        print(traceback.print_exc())
 
 
-def to_location_data(data):
+def to_location_data(data) -> {}:
     return {
         "lat": data['lat'],
         "lon": data['lon'],

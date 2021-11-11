@@ -1,24 +1,24 @@
-*git filter repo - https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-*BFG
-
-*prediction to forecast
-*errors
-*more talkative try-catch errors
-*pack + pass parameters
-*tests
-*git CI/CD
-*lowercase location names?
+to-do:
+*APIRouter - exception?
 
 *README
 *GitAntonDesc
 
+*function docs
+*function return types
+*function parameters
 
-*DB operations own static file? or per subproject?
+*more pydantic like
+
+*pack + pass parameters
+*tests
+*git CI/CD
 
 nice-to-have:
 *SQLAlchemy
-*more pydantic like
 *solve imports
 *automatize requirements.txt
 
-*application data db (lang and other shit)
+to-think-about:
+*DB operations own static file? or per subproject?
+*application data db (lang and other things - various)

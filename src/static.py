@@ -31,38 +31,38 @@ DATABASE_SELECT_ALL_TABLES = """
 SELECT count(name) FROM sqlite_master WHERE type='table'
 """
 
-########## WEATHER PREDICTIONS ##########
+########## WEATHER FORECASTS ##########
 
 DATABASE_CREATE_TABLE_WEATHER = """
-CREATE TABLE IF NOT EXISTS weather_predictions ([location] TEXT PRIMARY KEY,[data] TEXT, [current] TEXT, [hourly] TEXT, [daily] TEXT, [alerts] TEXT, [timestamp] TIMESTAMP)
+CREATE TABLE IF NOT EXISTS weather_forecasts ([location] TEXT PRIMARY KEY,[data] TEXT, [current] TEXT, [hourly] TEXT, [daily] TEXT, [alerts] TEXT, [timestamp] TIMESTAMP)
 """
 
 DATABASE_INSERT_INTO_TABLE_WEATHER = """
-INSERT OR REPLACE INTO weather_predictions (location, data, current, hourly, daily, alerts, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)
+INSERT OR REPLACE INTO weather_forecasts (location, data, current, hourly, daily, alerts, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)
 """
 
 DATABASE_SELECT_ALL_TABLE_WEATHER = """
-SELECT location, data, current, hourly, daily, alerts FROM weather_predictions
+SELECT location, data, current, hourly, daily, alerts FROM weather_forecasts
 """
 
 DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER = """
-SELECT location, data, current, hourly, daily, alerts FROM weather_predictions WHERE location = (?)
+SELECT location, data, current, hourly, daily, alerts FROM weather_forecasts WHERE location = (?)
 """
 
 DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT = """
-SELECT location, data, current, alerts FROM weather_predictions WHERE location = (?)
+SELECT location, data, current, alerts FROM weather_forecasts WHERE location = (?)
 """
 
 DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY = """
-SELECT location, data, hourly, alerts FROM weather_predictions WHERE location = (?)
+SELECT location, data, hourly, alerts FROM weather_forecasts WHERE location = (?)
 """
 
 DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY = """
-SELECT location, data, daily, alerts FROM weather_predictions WHERE location = (?)
+SELECT location, data, daily, alerts FROM weather_forecasts WHERE location = (?)
 """
 
 DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER = """
-SELECT timestamp FROM weather_predictions
+SELECT timestamp FROM weather_forecasts
 """
 
 ########## LOCATION ##########
