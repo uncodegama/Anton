@@ -3,7 +3,7 @@ import time
 import requests
 
 from src.database import perform_db_operation
-from src.static import OPEN_WEATHER_MAP_API_KEY
+from src.constants import OPEN_WEATHER_MAP_API_KEY
 from src.static import LOCATIONS
 from src.static import DATABASE_INSERT_INTO_TABLE_WEATHER
 from src.static import DATABASE_INSERT_INTO_TABLE_LOCATION

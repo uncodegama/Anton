@@ -1,7 +1,3 @@
-########## API KEYS ##########
-
-OPEN_WEATHER_MAP_API_KEY = ''
-
 ########## FILE NAMES ##########
 
 DATABASE_FILE_NAME = "Anton.db"
