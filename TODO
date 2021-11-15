@@ -1,5 +1,4 @@
 to-do:
-*APIRouter - exception?
 
 *README
 *GitAntonDesc
@@ -22,3 +21,4 @@ nice-to-have:
 to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
+*TOML / YAML
