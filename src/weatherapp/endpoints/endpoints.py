@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 
-from src.weatherapp.models.locationModel import Location, LocationModel
-from src.weatherapp.models.weatherForecastDailyModel import WeatherForecastDailyModel, WeatherForecastDaily
-from src.weatherapp.models.weatherForecastModel import WeatherForecast, WeatherForecastModel
-from src.weatherapp.models.weatherForecastCurrentModel import WeatherForecastCurrentModel, WeatherForecastCurrent
-from src.weatherapp.models.weatherForecastHourlyModel import WeatherForecastHourlyModel, WeatherForecastHourly
+from src.weatherapp.models.location_model import Location, LocationModel
+from src.weatherapp.models.weather_forecast_daily_model import WeatherForecastDailyModel, WeatherForecastDaily
+from src.weatherapp.models.weather_forecast_model import WeatherForecast, WeatherForecastModel
+from src.weatherapp.models.weather_forecast_current_model import WeatherForecastCurrentModel, WeatherForecastCurrent
+from src.weatherapp.models.weather_forecast_hourly_model import WeatherForecastHourlyModel, WeatherForecastHourly
 
 from src.database import perform_db_operation
 from src.static import DATABASE_SELECT_ALL_TABLE_LOCATION, DATABASE_SELECT_ALL_TABLE_WEATHER, \

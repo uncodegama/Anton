@@ -38,7 +38,7 @@ def find_db_file(name: str = DATABASE_FILE_NAME):
             return None
 
 
-def perform_db_operation(db_script: str, data=()) -> list:
+def perform_db_operation(db_script: str, data: tuple = ()) -> list:
     try:
         conn = get_db_connection()
         ret_data = conn.cursor().execute(db_script, data).fetchall()
@@ -58,7 +58,7 @@ def perform_db_operation(db_script: str, data=()) -> list:
         conn.close()
 
 
-def get_db_connection():
+def get_db_connection() -> sqlite3.Connection:
     try:
         return sqlite3.connect(os.path.join(os.getcwd(), DATABASE_FILE_NAME))
     except Exception as e:

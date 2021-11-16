@@ -45,7 +45,7 @@ def call_nominatim_api() -> None:
         print(traceback.print_exc())
 
 
-def to_location_data(data) -> {}:
+def to_location_data(data) -> dict:
     return {
         "lat": data['lat'],
         "lon": data['lon'],

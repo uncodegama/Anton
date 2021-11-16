@@ -3,7 +3,7 @@ import traceback
 import threading
 
 
-def every(delay, task):
+def every(delay: int, task) -> None:
     next_time = time.time() + delay
     while True:
         time.sleep(max(0, next_time - time.time()))
@@ -16,5 +16,5 @@ def every(delay, task):
         next_time += (time.time() - next_time) // delay * delay + delay
 
 
-def timer_run(timer, func):
+def timer_run(timer, func) -> None:
     threading.Thread(target=lambda: every(timer, func)).start()

@@ -1,24 +1,19 @@
 to-do:
-
-*README
-*GitAntonDesc
-
-*function docs
-*function return types
-*function parameters
-
-*more pydantic like
-
-*pack + pass parameters
+*https://www.youtube.com/watch?v=DhUpxWjOhME
 *tests
 *git CI/CD
+
+*pack + pass parameters
 
 nice-to-have:
 *SQLAlchemy
 *solve imports
 *automatize requirements.txt
+*Logging
 
 to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
 *TOML / YAML
+*flit
+*Python makefile
