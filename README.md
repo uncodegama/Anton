@@ -9,7 +9,7 @@
 ---
 "Everybody has Siri and Alexa, I'm going to have Anton!" - uncodegama
 
-Anton is meant to be an unintuitive and unintelligent home assistant, that is being created as a past-time project. The plan is to create RPI based touchscreen application, that will show actual time, current weather and weather predictions and play online radio or podcasts (maybe much more in the future).
+Anton is meant to be an unintuitive and unintelligent home assistant, that is being created as a free-time project. The plan is to create RPI based touchscreen application, that will show actual time, current weather and weather predictions and play online radio or podcasts (maybe much more in the future).
 
 ---
 ## Technology Stack
@@ -23,6 +23,7 @@ The plan is to use (if it's possible):
 
 * Python 3.9
 * <a href="https://github.com/uncodegama/Anton/blob/master/requirements.txt"> Used Packages </a>
+* <a href="https://openweathermap.org/">OpenWeatherMap</a> API key, which will be stored in ```src/constants.py``` as ```OPEN_WEATHER_MAP_API_KEY = <YOUR_API_KEY>```
 
 ---
 ## Installation
@@ -30,5 +31,38 @@ The plan is to use (if it's possible):
 python -m pip install -r requirements.txt
 python -m uvicorn main:app --reload
 ```
+
+and go to:
+```
+localhost:8000/docs
+```
+
+### Location change
+
+if you want to add your places to show current weather and weather predictions, go to <a href="https://github.com/uncodegama/Anton/blob/master/src/static.py">(link)</a>:
+```
+src/static.py
+```
+
+and change LOCATIONS (Now there are only my important locations - planed to be more intuitive in future):
+```
+LOCATIONS = {
+    {
+        "loc_name": "<your_city_name>",
+        "country": "<country>"
+    },
+}
+```
+
+Example:
+```
+LOCATIONS = {
+    {
+        "loc_name": "Brno",
+        "country": "Czechia"
+    }
+}
+```
+
 
 
