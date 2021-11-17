@@ -3,13 +3,15 @@ to-do:
 *tests
 *git CI/CD
 
+*pylint
+
 *pack + pass parameters
 
 nice-to-have:
 *SQLAlchemy
 *solve imports
 *automatize requirements.txt
-*Logging
+
 
 to-think-about:
 *DB operations own static file? or per subproject?
@@ -17,3 +19,5 @@ to-think-about:
 *TOML / YAML
 *flit
 *Python makefile
+
+*package code ?

@@ -10,6 +10,8 @@ from src.static import DATABASE_INSERT_INTO_TABLE_WEATHER
 from src.static import DATABASE_INSERT_INTO_TABLE_LOCATION
 from src.static import DATABASE_SELECT_ALL_TABLE_LOCATION
 
+from src.logger import logger
+
 
 def call_open_weather_api_forecasts() -> None:
     try:
@@ -28,8 +30,7 @@ def call_open_weather_api_forecasts() -> None:
                                   int(time.time())))
 
     except Exception as e:
-        print("EXCEPTION: call_open_weather_api_forecasts(): " + str(e))
-        print(traceback.print_exc())
+        logger.exception(e)
 
 
 def call_nominatim_api() -> None:
@@ -41,8 +42,7 @@ def call_nominatim_api() -> None:
                                  (loc.get('loc_name'), response.json()[0]['lat'], response.json()[0]['lon']))
 
     except Exception as e:
-        print("EXCEPTION: call_nominatim_api(): " + str(e))
-        print(traceback.print_exc())
+        logger.exception(e)
 
 
 def to_location_data(data) -> dict:

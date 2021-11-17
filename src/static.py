@@ -1,6 +1,7 @@
 ########## FILE NAMES ##########
 
 DATABASE_FILE_NAME = "Anton.db"
+LOGGER_FILE_NAME = "Anton.log"
 
 ########## STATIC VARIABLES ##########
 

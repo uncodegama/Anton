@@ -1,6 +1,7 @@
 import time
-import traceback
 import threading
+
+from src.logger import logger
 
 
 def every(delay: int, task) -> None:
@@ -10,9 +11,7 @@ def every(delay: int, task) -> None:
         try:
             task()
         except Exception:
-            traceback.print_exc()
-            # in production code you might want to have this instead of course:
-            # logger.exception("Problem while executing repetitive task.")
+            logger.exception("Problem while executing repetitive task.")
         next_time += (time.time() - next_time) // delay * delay + delay
 
 
