@@ -2,10 +2,10 @@ import sqlite3
 import os
 from datetime import datetime
 
-from src.logger import logger
-from src.static import DATABASE_FILE_NAME, DATABASE_CREATE_TABLE_LOCATION, DATABASE_CREATE_TABLE_WEATHER, \
+from anton.utils.logger import logger
+from anton.utils.static import DATABASE_FILE_NAME, DATABASE_CREATE_TABLE_LOCATION, DATABASE_CREATE_TABLE_WEATHER, \
     DATABASE_SELECT_ALL_TABLES, DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER, UPDATE_TIME
-import src.weatherapp.core as wac
+import anton.weatherapp.core.core as wac
 
 
 def create_db_file() -> None:
@@ -29,6 +29,7 @@ def create_db_file() -> None:
 
 
 def find_db_file(name: str = DATABASE_FILE_NAME):
+    logger.info(f"Starting to finding file in: {os.getcwd()}")
     for root, dirs, files in os.walk(os.getcwd()):
         if name in files:
             logger.info("File was found.")
@@ -39,6 +40,7 @@ def find_db_file(name: str = DATABASE_FILE_NAME):
 
 
 def perform_db_operation(db_script: str, data: tuple = ()) -> list:
+    logger.info(f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}")
     with sqlite3.connect(os.path.join(os.getcwd(), DATABASE_FILE_NAME)) as conn:
         logger.info(f'Executing db operation - {db_script} , with data {data} .')
         ret_data = conn.cursor().execute(db_script, data).fetchall()

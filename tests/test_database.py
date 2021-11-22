@@ -1,10 +1,10 @@
 import os
-from src.database import find_db_file
+import anton.utils.database as a
 
 
 def test_find_db_file():
-    path = os.getcwd() + "Anton1.db"
+    path = os.path.join(os.getcwd(), "Anton1.db")
 
     open(path, "a").close()
 
-    assert find_db_file("Anton1.db") == path
+    assert a.find_db_file("Anton1.db") == path

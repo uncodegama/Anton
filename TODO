@@ -16,8 +16,6 @@ nice-to-have:
 to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
-*TOML / YAML
-*flit
-*Python makefile
 
+*Python makefile
 *package code ?
