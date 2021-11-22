@@ -3,6 +3,9 @@
 set -e
 set -x
 
-cd ../anton
+pwd
+cd ..
+pwd
+cd anton
 
 pytest
