@@ -1,7 +1,8 @@
 to-do:
-*https://www.youtube.com/watch?v=DhUpxWjOhME / https://flit.readthedocs.io/en/latest/pyproject_toml.html#build-system-section
-*tests
 *git CI/CD
+*tests
+
+*fix create another .log file when pytest
 
 *pylint
 
@@ -11,7 +12,6 @@ nice-to-have:
 *SQLAlchemy
 *solve imports
 *automatize requirements.txt
-
 
 to-think-about:
 *DB operations own static file? or per subproject?

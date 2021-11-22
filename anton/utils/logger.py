@@ -5,6 +5,8 @@ from logging.handlers import RotatingFileHandler
 
 from anton.utils.static import LOGGER_FILE_NAME
 
+print(os.getcwd())
+
 path = os.path.join(os.getcwd(), LOGGER_FILE_NAME)
 frmt = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(message)s')
 handler = RotatingFileHandler(filename=path, maxBytes=1000000, encoding='UTF-8',

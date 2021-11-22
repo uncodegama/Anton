@@ -29,3 +29,4 @@ if __name__ == "__main__":
 
 # python -m pip freeze > requirements.txt
 # python -m pip install -r requirements.txt
+# python -m pip install -e .
