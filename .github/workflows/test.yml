@@ -32,4 +32,4 @@ jobs:
       run: |
         tree
         rm -f ./anton/utils/constants.py
-      if: succeeded() || failed()
+      if: always()
