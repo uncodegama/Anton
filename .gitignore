@@ -133,13 +133,17 @@ dmypy.json
 
 #we dont want db as it is initialized when program starts
 **/Anton.db
+**/Anton1.db
 **/Anton.log
 Anton.db
+Anton1.db
 Anton.log
 
 .idea
 
 **/constants.py
 
+**/tests/pytest-logs.txt
+**/pytest-logs.txt
 
 

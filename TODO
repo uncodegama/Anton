@@ -2,8 +2,6 @@ to-do:
 *git CI/CD
 *tests
 
-*fix create another .log file when pytest
-
 *pylint
 
 *pack + pass parameters
