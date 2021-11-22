@@ -30,6 +30,5 @@ jobs:
       run: bash scripts/test.sh
     - name: Teardown
       run: |
-        tree
         rm -f ./anton/utils/constants.py
       if: always()

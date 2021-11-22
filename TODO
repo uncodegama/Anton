@@ -1,11 +1,9 @@
 to-do:
-*git CI/CD
-
 *Update Readme.md
 
-*tests
+*write tests
 
-*pylint
+*add pylint to ci/cd
 
 *pack + pass parameters
 
@@ -14,9 +12,8 @@ nice-to-have:
 *solve imports
 *automatize requirements.txt
 
+*git CI/CD - add more py versions
+
 to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
-
-*Python makefile
-*package code ?

@@ -1,5 +1,5 @@
 import os
-import anton.utils.database as a
+import anton.utils.database as aud
 
 
 def test_find_db_file():
@@ -7,4 +7,4 @@ def test_find_db_file():
 
     open(path, "a").close()
 
-    assert a.find_db_file("Anton1.db") == path
+    assert aud.find_db_file("Anton1.db") == path
