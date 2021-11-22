@@ -25,7 +25,7 @@ jobs:
       run: flit install --symlink
     - name: Set API Keys
       run: |
-        echo "OPEN_WEATHER_MAP_API_KEY = ${{ secrets.OPEN_WEATHER_MAP_API_KEY }}" > ./anton/utils/constants.py
+        echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
     - name: Test
       run: bash scripts/test.sh
     - name: Teardown
