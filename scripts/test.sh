@@ -3,6 +3,7 @@
 set -e
 set -x
 
+tree
 pwd
 cd ..
 pwd
