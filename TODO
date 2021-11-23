@@ -1,7 +1,11 @@
 to-do:
 *write tests - https://testdriven.io/blog/fastapi-crud/
 
+*https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
+*fix tests on git
+
 *add pylint to ci/cd
+*add coverage to ci/cd
 
 *pack + pass parameters
 
