@@ -47,8 +47,8 @@ def call_nominatim_api() -> None:
 
 def to_location_data(data) -> dict:
     return {
-        "lat": data['lat'],
-        "lon": data['lon'],
+        "lat": str(data['lat']),
+        "lon": str(data['lon']),
         "timezone": data['timezone'],
         'timezone_offset': data['timezone_offset']
     }

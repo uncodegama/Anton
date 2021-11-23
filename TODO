@@ -1,7 +1,5 @@
 to-do:
-*Update Readme.md
-
-*write tests
+*write tests - https://testdriven.io/blog/fastapi-crud/
 
 *add pylint to ci/cd
 
@@ -10,7 +8,7 @@ to-do:
 nice-to-have:
 *SQLAlchemy
 *solve imports
-*automatize requirements.txt
+*automatize requirements.txt / .toml
 
 *git CI/CD - add more py versions
 
