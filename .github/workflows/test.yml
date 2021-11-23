@@ -29,7 +29,8 @@ jobs:
     - name: Initialize(Run) App
       run: |
         cd ./anton/
-        python -m uvicorn main:app & sleep 10; kill $!
+        python -m uvicorn main:app & sleep 5; kill $!
+        tree
     - name: Test
       run: bash scripts/test.sh
     - name: Teardown

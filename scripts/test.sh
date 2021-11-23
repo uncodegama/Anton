@@ -5,4 +5,4 @@ set -x
 
 cd anton
 
-pytest
+pytest --show-capture=no
