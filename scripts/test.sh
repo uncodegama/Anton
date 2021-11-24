@@ -5,4 +5,4 @@ set -x
 
 cd anton
 
-pytest --show-capture=no
+pytest --show-capture=no --log-cli-level=INFO

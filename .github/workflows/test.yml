@@ -35,11 +35,14 @@ jobs:
       - name: Remove API Keys
         run: |
           rm -f ./anton/utils/constants.py
+        if: always()
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: pytest-logs
           path: |
             **/pytest-logs.txt
+            **/anton.db
+            **/Anton.log
           retention-days: 1
         if: always()

@@ -15,4 +15,4 @@ logger = logging.getLogger('anton')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(handler)
 
-logger.info(f"Started Log file in: {path}")
+logger.debug(f"Started Log file in: {path}")

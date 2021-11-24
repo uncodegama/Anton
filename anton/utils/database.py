@@ -29,10 +29,10 @@ def create_db_file() -> None:
 
 
 def find_db_file(name: str = DATABASE_FILE_NAME):
-    logger.info(f"Starting to finding file in: {os.getcwd()}")
+    logger.debug(f"Starting to finding file in: {os.getcwd()}")
     for root, dirs, files in os.walk(os.getcwd()):
         if name in files:
-            logger.info("File was found.")
+            logger.debug("File was found.")
             return os.path.join(root, name)
         else:
             logger.warning("File NOT found.")
@@ -40,7 +40,7 @@ def find_db_file(name: str = DATABASE_FILE_NAME):
 
 
 def perform_db_operation(db_script: str, data: tuple = ()) -> list:
-    logger.info(f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}")
+    logger.debug(f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}")
     with sqlite3.connect(os.path.join(os.getcwd(), DATABASE_FILE_NAME)) as conn:
         logger.info(f'Executing db operation - {db_script} , with data {data} .')
         ret_data = conn.cursor().execute(db_script, data).fetchall()

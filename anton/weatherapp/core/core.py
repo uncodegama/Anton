@@ -17,6 +17,7 @@ def call_open_weather_api_forecasts() -> None:
         for loc, lat, lon in ad.perform_db_operation(DATABASE_SELECT_ALL_TABLE_LOCATION):
             response = requests.get(
                 f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={OPEN_WEATHER_MAP_API_KEY}&units=metric&exclude=minutely")
+            logger.debug(f"Calling OpenWeatherAPI with: {loc} and RESPONSE <{response.status_code}>")
             ad.perform_db_operation(DATABASE_INSERT_INTO_TABLE_WEATHER,
                                     (loc,
                                      json.dumps(to_location_data(response.json())),
@@ -38,6 +39,7 @@ def call_nominatim_api() -> None:
         for loc in LOCATIONS:
             response = requests.get(
                 f"https://nominatim.openstreetmap.org/search?city={loc.get('loc_name')}&country={loc.get('country')}&format=json&limit=1")
+            logger.debug(f"Calling NominatimAPI with: {loc} and RESPONSE <{response.status_code}>")
             ad.perform_db_operation(DATABASE_INSERT_INTO_TABLE_LOCATION,
                                     (loc.get('loc_name'), response.json()[0]['lat'], response.json()[0]['lon']))
 
