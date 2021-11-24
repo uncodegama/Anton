@@ -29,7 +29,8 @@ jobs:
       - name: Initialize(Run) App
         run: |
           cd ./anton/
-          timeout 15 python -m uvicorn main:app
+          python -m uvicorn main:app & pid=$!
+          (sleep 15 && kill -9 $pid) &
         if: always()
       - name: Test
         run: bash scripts/test.sh
