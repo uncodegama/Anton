@@ -11,29 +11,35 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [ 3.9 ]
       fail-fast: false
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Flit
-      run: pip install flit
-    - name: Install Dependencies
-      run: flit install --symlink
-    - name: Set API Keys
-      run: |
-        echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
-    - name: Initialize(Run) App
-      run: |
-        cd ./anton/
-        python -m uvicorn main:app & sleep 5; kill $!
-        tree
-    - name: Test
-      run: bash scripts/test.sh
-    - name: Teardown
-      run: |
-        rm -f ./anton/utils/constants.py
-      if: always()
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Flit
+        run: pip install flit
+      - name: Install Dependencies
+        run: flit install --symlink
+      - name: Set API Keys
+        run: |
+          echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
+      - name: Initialize(Run) App
+        run: |
+          cd ./anton/
+          python -m uvicorn main:app & sleep 5; kill $!
+      - name: Test
+        run: bash scripts/test.sh
+      - name: Remove API Keys
+        run: |
+          rm -f ./anton/utils/constants.py
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-logs
+          path: |
+            **/pytest-logs.txt
+          retention-days: 1
+        if: always()
