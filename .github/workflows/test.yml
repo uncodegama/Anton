@@ -26,13 +26,6 @@ jobs:
       - name: Set API Keys
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
-      - name: Initialize(Run) App
-        run: |
-          set -x
-          cd ./anton/
-          python -m uvicorn main:app & pid=$!
-          (sleep 15 && kill -9 $pid) &
-        if: always()
       - name: Test
         run: bash scripts/test.sh
         if: always()
