@@ -29,9 +29,11 @@ jobs:
       - name: Initialize(Run) App
         run: |
           cd ./anton/
-          sh -c '(sleep 10; kill "$$" 2>/dev/null) & python -m uvicorn main:app'
+          timeout 15 python -m uvicorn main:app
+        if: always()
       - name: Test
         run: bash scripts/test.sh
+        if: always()
       - name: Remove API Keys
         run: |
           rm -f ./anton/utils/constants.py
