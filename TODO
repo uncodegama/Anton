@@ -1,25 +1,23 @@
-to-do:
+#to-do:
 *add pylint to ci/cd
+
 *add coverage to ci/cd
-*add install chache to ci/cd ?
 
-*write tests - https://testdriven.io/blog/fastapi-crud/
+*add install cache to ci/cd ? https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 
-*https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
-*fix tests on git
-
-
+*write tests
 
 *pack + pass parameters
 
-nice-to-have:
+#nice-to-have:
 *SQLAlchemy
-*solve imports
 *automatize requirements.txt / .toml
 *more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
-
 *git CI/CD - add more py versions
 
-to-think-about:
+#to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
+
+#docs:
+*https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
