@@ -26,8 +26,9 @@ jobs:
       - name: Set API Keys
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
-      -name: Lint
+      - name: Lint
         run: bash scripts/lint.sh
+        if: always()
       - name: Test
         run: bash scripts/test.sh
         if: always()
