@@ -1,5 +1,5 @@
 import json
-import time
+from datetime import datetime
 import requests
 
 import anton.utils.database as ad
@@ -26,9 +26,9 @@ def call_open_weather_api_forecasts() -> None:
                                      json.dumps(response.json()['daily']),
                                      json.dumps(
                                          response.json()[
-                                             'alerts']) if 'alerts' in response.json().keys() else json.dumps({
-                                         'alerts': 'null'}),
-                                     int(time.time())))
+                                             'alerts']) if 'alerts' in response.json().keys() else json.dumps([{
+                                         'alerts': 'null'}]),
+                                     int(datetime.timestamp(datetime.now()))))
 
     except Exception as e:
         logger.exception(e)

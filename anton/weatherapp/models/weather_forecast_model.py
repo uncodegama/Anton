@@ -1,7 +1,9 @@
 import json
 
+from ...utils.logger import logger
+
 from pydantic import BaseModel
-from pydantic.typing import Optional
+from pydantic.typing import Optional, List
 
 
 class WeatherForecast(object):
@@ -20,7 +22,7 @@ class WeatherForecastModel(BaseModel):
     current: dict = {}
     hourly: list[dict] = {}
     daily: list[dict] = {}
-    alerts: Optional[dict] = {}
+    alerts: Optional[List[dict]] = {}
 
     class Config:
         orm_mode = True

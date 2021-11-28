@@ -5,19 +5,21 @@
 
 *add install cache to ci/cd ? https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 
-*write tests
-
 *pack + pass parameters
+
+*more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
 
 #nice-to-have:
 *SQLAlchemy
 *automatize requirements.txt / .toml
-*more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
 *git CI/CD - add more py versions
 
 #to-think-about:
 *DB operations own static file? or per subproject?
 *application data db (lang and other things - various)
+*Encryption DB, REST
 
 #docs:
 *https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
+
+*https://www.youtube.com/watch?v=s_4ZrtQs8Do

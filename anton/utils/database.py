@@ -57,6 +57,7 @@ def perform_db_operation(db_script: str, data: tuple = ()) -> list:
 def check_timestamps_and_update_table() -> None:
     items = perform_db_operation(DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER)
     timestamps_average = int(sum([a[0] for a in items]) / len(items))
+    logger.info(f"Average timestamp is: {timestamps_average}.")
 
     if timestamps_average + UPDATE_TIME < int(datetime.timestamp(datetime.now())):
         logger.info("Data in database were upgraded.")

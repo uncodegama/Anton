@@ -24,6 +24,7 @@ LOCATIONS = [
     },
 ]
 
+#seconds
 UPDATE_TIME = 1800
 
 ########## DEFAULT QUERIES ##########
