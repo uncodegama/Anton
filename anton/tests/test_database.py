@@ -5,20 +5,24 @@ import pytest
 
 import anton.utils.database as aud
 from anton.utils.static import (
-    DATABASE_FILE_NAME, DATABASE_SELECT_ALL_TABLE_LOCATION,
-    DATABASE_SELECT_ALL_TABLE_WEATHER, DATABASE_SELECT_ALL_TABLES,
+    DATABASE_FILE_NAME,
+    DATABASE_SELECT_ALL_TABLE_LOCATION,
+    DATABASE_SELECT_ALL_TABLE_WEATHER,
+    DATABASE_SELECT_ALL_TABLES,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY,
-    DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER, UPDATE_TIME)
+    DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER,
+    UPDATE_TIME,
+)
 
 
 @pytest.mark.order(1)
 class TestDatabaseMethods:
     path = os.path.join(os.getcwd(), DATABASE_FILE_NAME)
 
-    # Use actual timestamp - setted update time - 1(just to be sure)
+    # Use actual timestamp - set update time - 1(just to be sure)
     TIMESTAMP = int(datetime.timestamp(datetime.now())) - UPDATE_TIME - 1
     DATABASE_UPDATE_OLD_TIMESTAMP = (
         f"UPDATE weather_forecasts SET timestamp={TIMESTAMP}"

@@ -6,9 +6,12 @@ import requests
 import anton.utils.database as ad
 from anton.utils.constants import OPEN_WEATHER_MAP_API_KEY
 from anton.utils.logger import logger
-from anton.utils.static import (DATABASE_INSERT_INTO_TABLE_LOCATION,
-                                DATABASE_INSERT_INTO_TABLE_WEATHER,
-                                DATABASE_SELECT_ALL_TABLE_LOCATION, LOCATIONS)
+from anton.utils.static import (
+    DATABASE_INSERT_INTO_TABLE_LOCATION,
+    DATABASE_INSERT_INTO_TABLE_WEATHER,
+    DATABASE_SELECT_ALL_TABLE_LOCATION,
+    LOCATIONS,
+)
 
 
 def call_open_weather_api_forecasts() -> None:

@@ -6,11 +6,14 @@ from pydantic.typing import Any
 
 import anton.weatherapp.core.core as wac
 from anton.utils.logger import logger
-from anton.utils.static import (DATABASE_CREATE_TABLE_LOCATION,
-                                DATABASE_CREATE_TABLE_WEATHER,
-                                DATABASE_FILE_NAME, DATABASE_SELECT_ALL_TABLES,
-                                DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER,
-                                UPDATE_TIME)
+from anton.utils.static import (
+    DATABASE_CREATE_TABLE_LOCATION,
+    DATABASE_CREATE_TABLE_WEATHER,
+    DATABASE_FILE_NAME,
+    DATABASE_SELECT_ALL_TABLES,
+    DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER,
+    UPDATE_TIME,
+)
 
 
 def create_db_file() -> None:

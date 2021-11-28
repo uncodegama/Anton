@@ -2,20 +2,30 @@ from fastapi import APIRouter, HTTPException
 
 from anton.utils.database import perform_db_operation
 from anton.utils.static import (
-    DATABASE_SELECT_ALL_TABLE_LOCATION, DATABASE_SELECT_ALL_TABLE_WEATHER,
+    DATABASE_SELECT_ALL_TABLE_LOCATION,
+    DATABASE_SELECT_ALL_TABLE_WEATHER,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY,
-    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY)
+    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY,
+)
 from anton.weatherapp.models.location_model import Location, LocationModel
 from anton.weatherapp.models.weather_forecast_current_model import (
-    WeatherForecastCurrent, WeatherForecastCurrentModel)
+    WeatherForecastCurrent,
+    WeatherForecastCurrentModel,
+)
 from anton.weatherapp.models.weather_forecast_daily_model import (
-    WeatherForecastDaily, WeatherForecastDailyModel)
+    WeatherForecastDaily,
+    WeatherForecastDailyModel,
+)
 from anton.weatherapp.models.weather_forecast_hourly_model import (
-    WeatherForecastHourly, WeatherForecastHourlyModel)
+    WeatherForecastHourly,
+    WeatherForecastHourlyModel,
+)
 from anton.weatherapp.models.weather_forecast_model import (
-    WeatherForecast, WeatherForecastModel)
+    WeatherForecast,
+    WeatherForecastModel,
+)
 
 weather = APIRouter(
     prefix="/weather",
