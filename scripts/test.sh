@@ -5,4 +5,4 @@ set -x
 
 cd anton
 
-pytest --capture=no --log-cli-level=ERROR --cov=anton --cov-report=html --cov-config=./tests/.coveragerc
+pytest --capture=no --log-cli-level=ERROR --cov=anton --cov-report=html --cov-report=xml --cov-config=./tests/.coveragerc
