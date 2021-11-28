@@ -51,6 +51,7 @@ jobs:
             **/pytest-logs.txt
             **/Anton.db
             **/Anton.log
+            **/htmlcov/*
           retention-days: 1
         if: always()
       - name: Upload Coverage
