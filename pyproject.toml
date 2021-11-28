@@ -67,6 +67,7 @@ test = [
     "flake8>=3.8.3,<4.0.0",
     "black==21.9b0",
     "mypy==0.910",
+
     # types
     "types-ujson==4.2.0",
     "types-orjson==3.6.1",
@@ -74,6 +75,15 @@ test = [
     "types-requests==2.26.1",
     "types-atomicwrites==1.4.1",
     "types-setuptools==57.4.4",
+]
+
+build = [
+    "altgraph==0.17.2",
+    "future==0.18.2",
+    "pefile==2021.9.3",
+    "pyinstaller==4.7",
+    "pyinstaller-hooks-contrib==2021.3",
+    "pywin32-ctypes==0.2.0"
 ]
 
 [tool.mypy]
