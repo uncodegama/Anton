@@ -53,3 +53,5 @@ jobs:
             **/Anton.log
           retention-days: 1
         if: always()
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1

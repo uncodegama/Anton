@@ -1,6 +1,4 @@
 #to-do:
-*add install cache to ci/cd ? https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows
-
 *add coverage to ci/cd
 
 *pack + pass parameters
