@@ -89,6 +89,9 @@ implicit_reexport = true
 strict_equality = true
 ignore_missing_imports = true
 
+[tool.isort]
+profile = "black"
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
