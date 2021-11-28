@@ -61,6 +61,7 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "pytest==6.2.5",
+    "pytest-cov >=2.12.0,<4.0.0",
     "isort>=5.10.1,<6.0.0",
     "pytest-order==1.0.0",
     "flake8>=3.8.3,<4.0.0",
@@ -91,6 +92,11 @@ ignore_missing_imports = true
 
 [tool.isort]
 profile = "black"
+
+[tool.coverage.report]
+omit = [
+    "anton/utils/constants.py",
+    ]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
