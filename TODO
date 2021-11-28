@@ -1,18 +1,15 @@
 #to-do:
-*fix linting
+*add install cache to ci/cd ? https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 
 *add coverage to ci/cd
 
-*add install cache to ci/cd ? https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows
-
 *pack + pass parameters
-
-*more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
 
 #nice-to-have:
 *SQLAlchemy
 *automatize requirements.txt / .toml
 *git CI/CD - add more py versions
+*more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
 
 #to-think-about:
 *DB operations own static file? or per subproject?
