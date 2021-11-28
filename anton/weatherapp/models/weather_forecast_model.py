@@ -1,11 +1,19 @@
 import json
 
 from pydantic import BaseModel
-from pydantic.typing import List, Optional
+from pydantic.typing import List, Optional, Union
 
 
 class WeatherForecast(object):
-    def __init__(self, location, data, current, hourly, daily, alerts):
+    def __init__(
+        self,
+        location: str,
+        data: Union[str, bytes],
+        current: Union[str, bytes],
+        hourly: Union[str, bytes],
+        daily: Union[str, bytes],
+        alerts: Union[str, bytes],
+    ) -> None:
         self.location: str = location
         self.data = json.loads(data)
         self.current = json.loads(current)
@@ -23,9 +31,9 @@ class WeatherForecastModel(BaseModel):
         "timezone_offset": 7200,
     }
     current: dict = {}
-    hourly: list[dict] = {}
-    daily: list[dict] = {}
-    alerts: Optional[List[dict]] = {}
+    hourly: list[dict] = [{}]
+    daily: list[dict] = [{}]
+    alerts: Optional[List[dict]] = [{}]
 
     class Config:
         orm_mode = True

@@ -20,7 +20,7 @@ class WeatherForecastHourlyModel(BaseModel):
         "timezone": "Europe/Prague",
         "timezone_offset": 7200,
     }
-    hourly: list[dict] = {}
+    hourly: list[dict] = [{}]
     alerts: Optional[List[dict]] = [{}]
 
     class Config:

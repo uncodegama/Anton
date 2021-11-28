@@ -20,7 +20,7 @@ class WeatherForecastDailyModel(BaseModel):
         "timezone": "Europe/Prague",
         "timezone_offset": 7200,
     }
-    daily: list[dict] = {}
+    daily: list[dict] = [{}]
     alerts: Optional[List[dict]] = [{}]
 
     class Config:

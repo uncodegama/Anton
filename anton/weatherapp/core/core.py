@@ -63,7 +63,7 @@ def call_nominatim_api() -> None:
         logger.exception(e)
 
 
-def to_location_data(data) -> dict:
+def to_location_data(data: dict) -> dict:
     return {
         "lat": str(data["lat"]),
         "lon": str(data["lon"]),

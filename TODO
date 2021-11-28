@@ -1,5 +1,5 @@
 #to-do:
-*add pylint to ci/cd
+*fix linting
 
 *add coverage to ci/cd
 

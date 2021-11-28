@@ -53,7 +53,7 @@ async def get_weather_forecasts():
     response_model=WeatherForecastModel,
     description="Returns weather forecast (current, hourly, daily) for given location.",
 )
-async def get_weather_forecast_by_location(location: str):
+async def get_weather_forecast_by_location(location: str) -> WeatherForecast:
     query = perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, (location,))
     if not query:
         raise HTTPException(status_code=404, detail="Forecast not found.")
@@ -65,7 +65,9 @@ async def get_weather_forecast_by_location(location: str):
     response_model=WeatherForecastCurrentModel,
     description="Returns current weather forecast for given location. {1}",
 )
-async def get_weather_forecast_by_location_current(location: str):
+async def get_weather_forecast_by_location_current(
+    location: str,
+) -> WeatherForecastCurrent:
     query = perform_db_operation(
         DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, (location,)
     )
@@ -79,7 +81,9 @@ async def get_weather_forecast_by_location_current(location: str):
     response_model=WeatherForecastHourlyModel,
     description="Returns hourly weather forecast for given location, for 48 hours. [{48}]",
 )
-async def get_weather_forecast_by_location_hourly(location: str):
+async def get_weather_forecast_by_location_hourly(
+    location: str,
+) -> WeatherForecastHourly:
     query = perform_db_operation(
         DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, (location,)
     )
@@ -93,7 +97,7 @@ async def get_weather_forecast_by_location_hourly(location: str):
     response_model=WeatherForecastDailyModel,
     description="Returns daily weather forecast for given location, for 7 days (today included). [{8}]",
 )
-async def get_weather_forecast_by_location_daily(location: str):
+async def get_weather_forecast_by_location_daily(location: str) -> WeatherForecastDaily:
     query = perform_db_operation(
         DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, (location,)
     )

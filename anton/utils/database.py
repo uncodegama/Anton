@@ -2,6 +2,8 @@ import os
 import sqlite3
 from datetime import datetime
 
+from pydantic.typing import Any
+
 import anton.weatherapp.core.core as wac
 from anton.utils.logger import logger
 from anton.utils.static import (DATABASE_CREATE_TABLE_LOCATION,
@@ -34,7 +36,7 @@ def create_db_file() -> None:
         logger.exception(e)
 
 
-def find_db_file(name: str = DATABASE_FILE_NAME):
+def find_db_file(name: str = DATABASE_FILE_NAME) -> Any:
     logger.debug(f"Starting to finding file in: {os.getcwd()}")
     for root, dirs, files in os.walk(os.getcwd()):
         if name in files:
