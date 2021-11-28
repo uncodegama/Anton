@@ -1,13 +1,17 @@
-import pytest
 import os
 from datetime import datetime
-import anton.utils.database as aud
 
-from anton.utils.static import DATABASE_FILE_NAME, DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, \
-    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, \
-    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, DATABASE_SELECT_ALL_TABLE_LOCATION, \
-    DATABASE_SELECT_ALL_TABLES, UPDATE_TIME, DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER, \
-    DATABASE_SELECT_ALL_TABLE_WEATHER
+import pytest
+
+import anton.utils.database as aud
+from anton.utils.static import (
+    DATABASE_FILE_NAME, DATABASE_SELECT_ALL_TABLE_LOCATION,
+    DATABASE_SELECT_ALL_TABLE_WEATHER, DATABASE_SELECT_ALL_TABLES,
+    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER,
+    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT,
+    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY,
+    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY,
+    DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER, UPDATE_TIME)
 
 
 @pytest.mark.order(1)
@@ -16,7 +20,9 @@ class TestDatabaseMethods:
 
     # Use actual timestamp - setted update time - 1(just to be sure)
     TIMESTAMP = int(datetime.timestamp(datetime.now())) - UPDATE_TIME - 1
-    DATABASE_UPDATE_OLD_TIMESTAMP = f"UPDATE weather_forecasts SET timestamp={TIMESTAMP}"
+    DATABASE_UPDATE_OLD_TIMESTAMP = (
+        f"UPDATE weather_forecasts SET timestamp={TIMESTAMP}"
+    )
 
     @pytest.fixture()
     def remove_db_file(self):
@@ -83,7 +89,35 @@ class TestDatabaseMethods:
 
         # weather_predictions table
         assert len(aud.perform_db_operation(DATABASE_SELECT_ALL_TABLE_WEATHER)) == 4
-        assert len(aud.perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, ("Brno",))[0]) == 6
-        assert len(aud.perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, ("Brno",))[0]) == 4
-        assert len(aud.perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, ("Brno",))[0]) == 4
-        assert len(aud.perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, ("Brno",))[0]) == 4
+        assert (
+            len(
+                aud.perform_db_operation(
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, ("Brno",)
+                )[0]
+            )
+            == 6
+        )
+        assert (
+            len(
+                aud.perform_db_operation(
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, ("Brno",)
+                )[0]
+            )
+            == 4
+        )
+        assert (
+            len(
+                aud.perform_db_operation(
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, ("Brno",)
+                )[0]
+            )
+            == 4
+        )
+        assert (
+            len(
+                aud.perform_db_operation(
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, ("Brno",)
+                )[0]
+            )
+            == 4
+        )

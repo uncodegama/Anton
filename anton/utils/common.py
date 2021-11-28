@@ -1,5 +1,5 @@
-import time
 import threading
+import time
 
 from anton.utils.logger import logger
 
@@ -17,4 +17,3 @@ def every(delay: int, task) -> None:
 
 def timer_run(timer, func) -> None:
     threading.Thread(target=lambda: every(timer, func)).start()
-

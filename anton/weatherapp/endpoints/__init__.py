@@ -1,1 +1,0 @@
-from anton.weatherapp.core.core import call_open_weather_api_forecasts, call_nominatim_api

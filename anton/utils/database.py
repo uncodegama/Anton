@@ -1,16 +1,22 @@
-import sqlite3
 import os
+import sqlite3
 from datetime import datetime
 
-from anton.utils.logger import logger
-from anton.utils.static import DATABASE_FILE_NAME, DATABASE_CREATE_TABLE_LOCATION, DATABASE_CREATE_TABLE_WEATHER, \
-    DATABASE_SELECT_ALL_TABLES, DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER, UPDATE_TIME
 import anton.weatherapp.core.core as wac
+from anton.utils.logger import logger
+from anton.utils.static import (DATABASE_CREATE_TABLE_LOCATION,
+                                DATABASE_CREATE_TABLE_WEATHER,
+                                DATABASE_FILE_NAME, DATABASE_SELECT_ALL_TABLES,
+                                DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER,
+                                UPDATE_TIME)
 
 
 def create_db_file() -> None:
     try:
-        if find_db_file() is None or perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 0:
+        if (
+            find_db_file() is None
+            or perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 0
+        ):
             logger.info("Anton.db file was not found OR there weren't any tables.")
             logger.info("Initializing tables - start.")
             perform_db_operation(DATABASE_CREATE_TABLE_WEATHER)
@@ -40,17 +46,19 @@ def find_db_file(name: str = DATABASE_FILE_NAME):
 
 
 def perform_db_operation(db_script: str, data: tuple = ()) -> list:
-    logger.debug(f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}")
+    logger.debug(
+        f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}"
+    )
     with sqlite3.connect(os.path.join(os.getcwd(), DATABASE_FILE_NAME)) as conn:
-        logger.info(f'Executing db operation - {db_script}.')
+        logger.info(f"Executing db operation - {db_script}.")
         ret_data = conn.cursor().execute(db_script, data).fetchall()
         conn.commit()
 
     if ret_data:
-        logger.info(f'Data found in database.')
+        logger.info("Data found in database.")
         return ret_data
     else:
-        logger.warning('Data NOT found in database.')
+        logger.warning("Data NOT found in database.")
         return []
 
 

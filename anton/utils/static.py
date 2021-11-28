@@ -6,25 +6,13 @@ LOGGER_FILE_NAME = "Anton.log"
 ########## STATIC VARIABLES ##########
 
 LOCATIONS = [
-    {
-        "loc_name": "Brno",
-        "country": "Czechia"
-    },
-    {
-        "loc_name": "Nové Mesto nad Váhom",
-        "country": "Slovakia"
-    },
-    {
-        "loc_name": "Skalica",
-        "country": "Slovakia"
-    },
-    {
-        "loc_name": "Spišská Nová Ves",
-        "country": "Slovakia"
-    },
+    {"loc_name": "Brno", "country": "Czechia"},
+    {"loc_name": "Nové Mesto nad Váhom", "country": "Slovakia"},
+    {"loc_name": "Skalica", "country": "Slovakia"},
+    {"loc_name": "Spišská Nová Ves", "country": "Slovakia"},
 ]
 
-#seconds
+# seconds
 UPDATE_TIME = 1800
 
 ########## DEFAULT QUERIES ##########

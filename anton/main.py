@@ -1,18 +1,15 @@
 import uvicorn
 from fastapi import FastAPI
 
-from anton.weatherapp.endpoints.endpoints import weather
-from anton.utils.database import create_db_file
-from anton.utils.common import timer_run
-from anton.utils.static import UPDATE_TIME
-
 import anton.weatherapp.core.core as core
+from anton.utils.common import timer_run
+from anton.utils.database import create_db_file
+from anton.utils.static import UPDATE_TIME
+from anton.weatherapp.endpoints.endpoints import weather
 
 
 def app():
-    app = FastAPI(
-        title="Anton v2.0",
-        description="Backend for Anton application.")
+    app = FastAPI(title="Anton v2.0", description="Backend for Anton application.")
 
     app.include_router(weather)
 
@@ -30,3 +27,4 @@ if __name__ == "__main__":
 # python -m pip freeze > requirements.txt
 # python -m pip install -r requirements.txt
 # python -m pip install -e .
+# isort .

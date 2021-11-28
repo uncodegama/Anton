@@ -1,9 +1,7 @@
 import json
 
-from ...utils.logger import logger
-
 from pydantic import BaseModel
-from pydantic.typing import Optional, List
+from pydantic.typing import List, Optional
 
 
 class WeatherForecast(object):
@@ -18,7 +16,12 @@ class WeatherForecast(object):
 
 class WeatherForecastModel(BaseModel):
     location: str = "Brno"
-    data: dict = {"lat": 49.1922, "lon": 16.6113, "timezone": "Europe/Prague", "timezone_offset": 7200}
+    data: dict = {
+        "lat": 49.1922,
+        "lon": 16.6113,
+        "timezone": "Europe/Prague",
+        "timezone_offset": 7200,
+    }
     current: dict = {}
     hourly: list[dict] = {}
     daily: list[dict] = {}
