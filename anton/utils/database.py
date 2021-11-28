@@ -42,12 +42,12 @@ def find_db_file(name: str = DATABASE_FILE_NAME):
 def perform_db_operation(db_script: str, data: tuple = ()) -> list:
     logger.debug(f"Opened DB Connection to: {os.path.join(os.getcwd(), DATABASE_FILE_NAME)}")
     with sqlite3.connect(os.path.join(os.getcwd(), DATABASE_FILE_NAME)) as conn:
-        logger.info(f'Executing db operation - {db_script} , with data {data} .')
+        logger.info(f'Executing db operation - {db_script}.')
         ret_data = conn.cursor().execute(db_script, data).fetchall()
         conn.commit()
 
     if ret_data:
-        logger.info(f'Data found in database: {ret_data}.')
+        logger.info(f'Data found in database.')
         return ret_data
     else:
         logger.warning('Data NOT found in database.')
