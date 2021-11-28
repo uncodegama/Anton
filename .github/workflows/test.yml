@@ -55,4 +55,4 @@ jobs:
           retention-days: 1
         if: always()
       - name: Upload Coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
