@@ -1,7 +1,6 @@
 name: Build Windows Package (Win10x64)
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   build:
@@ -21,7 +20,7 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test
-      -name: Download and Unpack UPX
+      - name: Download and Unpack UPX
         run: |
           Invoke-WebRequest -Uri "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip" -outfile  "C:\upx-3.96-win64.zip"
           Expand-Archive "C:\upx-3.96-win64.zip" -DestinationPath "C:\upx-3.96-win64\"
