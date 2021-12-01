@@ -141,6 +141,9 @@ Anton.log
 Anton.log.1
 Anton.log.*
 
+Anton.spec
+**/Anton.spec
+
 .idea
 
 **/constants.py
