@@ -29,17 +29,11 @@ dependencies = [
     "asgiref==3.4.1",
     "atomicwrites==1.4.0",
     "attrs==21.2.0",
-    "certifi==2021.10.8",
-    "charset-normalizer==2.0.7",
     "click==8.0.3",
     "colorama==0.4.4",
-    "docutils==0.18",
     "fastapi==0.70.0",
-    "flit==3.4.0",
-    "flit-core==3.4.0",
     "greenlet==1.1.2",
     "h11==0.12.0",
-    "idna==3.3",
     "iniconfig==1.1.1",
     "packaging==21.2",
     "pluggy==1.0.0",
@@ -51,10 +45,7 @@ dependencies = [
     "SQLAlchemy==1.4.26",
     "starlette==0.16.0",
     "toml==0.10.2",
-    "tomli==1.2.2",
-    "tomli-w==0.4.0",
     "typing-extensions==3.10.0.2",
-    "urllib3==1.26.7",
     "uvicorn==0.15.0"
 ]
 
