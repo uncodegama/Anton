@@ -33,6 +33,7 @@ jobs:
       - name: Set API Keys
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
+          echo "PYI_BLOCK_CIPHER_KEY = '${{ secrets.PYI_BLOCK_CIPHER_KEY }}'" >> ./anton/utils/constants.py
       - name: Lint
         run: bash scripts/lint.sh
         if: always()
