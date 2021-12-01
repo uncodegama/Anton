@@ -38,32 +38,32 @@ class TestDatabaseMethods:
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_create_db_file_none_exist(self):
-        assert aud.find_db_file(DATABASE_FILE_NAME) != self.path
+        assert aud.find_file(DATABASE_FILE_NAME) != self.path
 
         aud.create_db_file()
-        assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
+        assert aud.find_file(DATABASE_FILE_NAME) == self.path
         assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_create_db_file_empty_db(self):
-        assert aud.find_db_file(DATABASE_FILE_NAME) != self.path
+        assert aud.find_file(DATABASE_FILE_NAME) != self.path
 
         # touch to create db file, but without data
         aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)
-        assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
+        assert aud.find_file(DATABASE_FILE_NAME) == self.path
         assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 0
 
         # fill data to existing db file
         aud.create_db_file()
-        assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
+        assert aud.find_file(DATABASE_FILE_NAME) == self.path
         assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_create_db_file_timestamp_update(self):
-        assert aud.find_db_file(DATABASE_FILE_NAME) != self.path
+        assert aud.find_file(DATABASE_FILE_NAME) != self.path
 
         aud.create_db_file()
-        assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
+        assert aud.find_file(DATABASE_FILE_NAME) == self.path
         assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
 
         aud.perform_db_operation(self.DATABASE_UPDATE_OLD_TIMESTAMP)
@@ -79,7 +79,7 @@ class TestDatabaseMethods:
     @pytest.mark.usefixtures("remove_db_file")
     def test_find_db_file(self):
         aud.create_db_file()
-        assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
+        assert aud.find_file(DATABASE_FILE_NAME) == self.path
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_data_in_db(self):

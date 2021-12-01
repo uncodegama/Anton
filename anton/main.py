@@ -4,7 +4,7 @@ from fastapi import FastAPI
 import anton.weatherapp.core.core as core
 from anton.utils.common import timer_run
 from anton.utils.database import create_db_file
-from anton.utils.static import UPDATE_TIME
+from anton.utils.static import UPDATE_TIME, RunTypeEnum
 from anton.weatherapp.endpoints.endpoints import weather
 
 
@@ -17,7 +17,7 @@ def app():
 
 
 if __name__ == "__main__":
-    create_db_file()
+    create_db_file(RunTypeEnum.TEST)
     timer_run(UPDATE_TIME, core.call_open_weather_api_forecasts)
 
     uvicorn.run(app(), host="127.0.0.1", port=8000, log_level="info")

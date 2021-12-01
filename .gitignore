@@ -140,6 +140,8 @@ Anton.db
 Anton.log
 Anton.log.1
 Anton.log.*
+Anton_Dump.sql
+**/Anton_Dump.sql
 
 .idea
 

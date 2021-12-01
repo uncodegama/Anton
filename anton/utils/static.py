@@ -1,7 +1,11 @@
+from enum import Enum
+
 ########## FILE NAMES ##########
 
 DATABASE_FILE_NAME = "Anton.db"
+DATABASE_DUMP_FILE_NAME = "Anton_Dump.sql"
 LOGGER_FILE_NAME = "Anton.log"
+
 
 ########## STATIC VARIABLES ##########
 
@@ -15,11 +19,21 @@ LOCATIONS = [
 # seconds
 UPDATE_TIME = 1800
 
+
+########## ENUMS ##########
+
+
+class RunTypeEnum(Enum):
+    BUILD = 1  # for run purposes
+    TEST = 2  # for devel and test purposes
+
+
 ########## DEFAULT QUERIES ##########
 
 DATABASE_SELECT_ALL_TABLES = """
 SELECT count(name) FROM sqlite_master WHERE type='table'
 """
+
 
 ########## WEATHER FORECASTS ##########
 
@@ -54,6 +68,7 @@ SELECT location, data, daily, alerts FROM weather_forecasts WHERE location = (?)
 DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER = """
 SELECT timestamp FROM weather_forecasts
 """
+
 
 ########## LOCATION ##########
 
