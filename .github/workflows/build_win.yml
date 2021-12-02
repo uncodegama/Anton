@@ -5,7 +5,8 @@ on:
     workflows: [ 'Test' ]
     branches: [ main ]
     types:
-      - requested
+      - completed
+
 
 jobs:
   build:
