@@ -22,8 +22,11 @@ jobs:
           key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test
       - name: Download and Unpack UPX
         run: |
-          Invoke-WebRequest -Uri "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip" -outfile  "C:\upx-3.96-win64.zip"
-          Expand-Archive "C:\upx-3.96-win64.zip" -DestinationPath "C:\upx-3.96-win64\"
+          Invoke-WebRequest -Uri "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-arm64_linux.tar.xz" -outfile  "/home/runner/work/upx-3.96-arm64_linux.tar.xz"
+          if (-not (Get-Command Expand-7Zip -ErrorAction Ignore)) {
+            Install-Package -Scope CurrentUser -Force 7Zip4PowerShell > $null
+          }
+          Expand-7Zip "/home/runner/work/upx-3.96-arm64_linux.tar.xz" "/home/runner/work/upx-3.96-arm64_linux/"
         shell: pwsh
       - name: Install Flit
         if: steps.cache.outputs.cache-hit != 'true'
