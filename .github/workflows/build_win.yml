@@ -1,13 +1,19 @@
 name: Build Windows Package (Win10x64)
 
-on: workflow_dispatch
+on:
+  workflow_run:
+    workflows: [ 'Test' ]
+    branches: [ main ]
+    types:
+      - requested
 
 jobs:
   build:
     runs-on: windows-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [ 3.9 ]
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
@@ -41,6 +47,6 @@ jobs:
         with:
           name: anton_win10x64_build
           path: |
-              **/Anton.exe
+            **/Anton.exe
           retention-days: 1
 
