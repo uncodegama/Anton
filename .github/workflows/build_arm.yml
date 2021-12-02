@@ -24,6 +24,7 @@ jobs:
         run: |
           wget -O "/home/runner/work/upx-3.96-arm64_linux.tar.xz" "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-arm64_linux.tar.xz" 
           file /home/runner/work/upx-3.96-arm64_linux.tar.xz
+          mkdir upx-3.96-arm64_linux
           tar -C /home/runner/work/upx-3.96-arm64_linux/ -xf /home/runner/work/upx-3.96-arm64_linux.tar.xz
       - name: Install Flit
         if: steps.cache.outputs.cache-hit != 'true'
