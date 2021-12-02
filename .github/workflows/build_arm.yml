@@ -31,6 +31,16 @@ jobs:
       - name: Set API Keys
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
+      - name: Build PyInstaller Bootloader
+        run: |
+          git clone https://github.com/pyinstaller/pyinstaller
+          cd pyinstaller/bootloader
+          python3 ./waf distclean all
+          cd ../PyInstaller/bootloader/
+          ls
+          
+          file Linux-32bit-arm/run
+          echo $PWD
       - name: Build
         run: bash ./scripts/build_ARM64.sh ${{ secrets.PYI_BLOCK_CIPHER_KEY }}
       - name: Upload Artifacts
