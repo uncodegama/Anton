@@ -1,10 +1,10 @@
-name: Build Windows Package (Win10x64)
+name: Build ARM64 Package
 
 on: workflow_dispatch
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.9]
@@ -41,6 +41,6 @@ jobs:
         with:
           name: anton_win10x64_build
           path: |
-              **/Anton.exe
+              **/Anton.*
           retention-days: 1
 
