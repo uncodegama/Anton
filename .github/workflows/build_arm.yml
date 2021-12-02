@@ -23,7 +23,8 @@ jobs:
       - name: Download and Unpack UPX
         run: |
           wget -O "/home/runner/work/upx-3.96-arm64_linux.tar.xz" "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-arm64_linux.tar.xz" 
-          tar -C /home/runner/work/upx-3.96-arm64_linux/ -zxvf /home/runner/work/upx-3.96-arm64_linux.tar.xz
+          file /home/runner/work/upx-3.96-arm64_linux.tar.xz
+          tar -C /home/runner/work/upx-3.96-arm64_linux/ -xf /home/runner/work/upx-3.96-arm64_linux.tar.xz
       - name: Install Flit
         if: steps.cache.outputs.cache-hit != 'true'
         run: pip install flit
@@ -34,7 +35,7 @@ jobs:
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
       - name: Build
-        run: ./scripts/build_win.bat ${{ secrets.PYI_BLOCK_CIPHER_KEY }}
+        run: bash ./scripts/build_ARM64.sh ${{ secrets.PYI_BLOCK_CIPHER_KEY }}
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
