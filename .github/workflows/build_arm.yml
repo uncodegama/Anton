@@ -27,8 +27,6 @@ jobs:
 
       - name: Export Dist
         run: |
-          docker ps
-          docker images
           docker exec anton ls
           docker cp moby/buildkit:buildx-stable-1:Anton/dist/Anton "./Anton"
 
