@@ -8,10 +8,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
       - name: Build
         id: build
         uses: ./.github/actions/arm64-build

@@ -6,14 +6,13 @@ RUN apt-get update && \
                        libffi-dev \
                        libssl-dev \
                        git  \
-                       upx && \
-    rm -rf /var/lib/apt/lists/*
+                       upx
 
 RUN python3 -m pip install pyinstaller \
                            tinyaes \
                            flit
 
-COPY .. .
+COPY . .
 
 #WORKDIR $PROJECT_NAME
 #
