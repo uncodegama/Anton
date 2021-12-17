@@ -11,31 +11,39 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
       - uses: actions/cache@v2
         id: cache
         with:
           path: ${{ env.pythonLocation }}
           key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test
+
       - name: Download and Unpack UPX
         run: |
           Invoke-WebRequest -Uri "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip" -outfile  "C:\upx-3.96-win64.zip"
           Expand-Archive "C:\upx-3.96-win64.zip" -DestinationPath "C:\upx-3.96-win64\"
         shell: pwsh
+
       - name: Install Flit
         if: steps.cache.outputs.cache-hit != 'true'
         run: pip install flit
+
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: flit install --symlink
+
       - name: Set API Keys
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
+
       - name: Build
         run: ./scripts/build_win.bat ${{ secrets.PYI_BLOCK_CIPHER_KEY }}
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:

@@ -13,15 +13,15 @@ RUN python3 -m pip install pyinstaller \
                            tinyaes \
                            flit
 
-COPY .github/actions/arm64-build .
+COPY . ./Anton/
 
-#WORKDIR $PROJECT_NAME
-#
-#RUN export FLIT_ROOT_INSTALL=1
-#
-#RUN flit install
-#
-#RUN $RUN_SCRIPT $SECRET
+WORKDIR Anton
+
+RUN export FLIT_ROOT_INSTALL=1
+
+RUN flit install
+
+RUN ./scripts/build_ARM64.sh
 
 
 

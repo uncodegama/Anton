@@ -17,16 +17,23 @@ jobs:
         with:
           install: true
 
-      - name: Build
-        id: build
+      - name: Set API Keys
         run: |
-          docker build --platform linux/amd64 . 
+          echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
+
+      - name: Build
+        run: |
+          docker build --platform linux/amd64 -t Anton . 
+
+      - name: Export Dist
+        run: |
+          docker cp Anton:"/Anton/dist/Anton" "./Anton"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: anton_win10x64_build
+          name: anton_arm64_build
           path: |
-            **/Anton.*
+            **/Anton
           retention-days: 1
 
