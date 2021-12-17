@@ -13,11 +13,11 @@ RUN python3 -m pip install pyinstaller \
                            tinyaes \
                            flit
 
+ENV FLIT_ROOT_INSTALL=1
+
 COPY . ./Anton/
 
 WORKDIR Anton
-
-CMD export FLIT_ROOT_INSTALL=1
 
 RUN flit install
 
