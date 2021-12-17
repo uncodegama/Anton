@@ -20,7 +20,8 @@ jobs:
       - name: Build
         id: build
         run: |
-          docker build --platform linux/amd64 ./.github/actions/arm64-build/Dockerfile 
+          tree
+          docker build --platform linux/amd64 ./Anton/.github/actions/arm64-build/Dockerfile 
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
