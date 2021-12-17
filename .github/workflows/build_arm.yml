@@ -27,7 +27,8 @@ jobs:
 
       - name: Export Dist
         run: |
-          docker cp anton:"/Anton/dist/Anton" "./Anton"
+          tree
+          docker cp anton:"/dist/Anton" "./Anton"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
