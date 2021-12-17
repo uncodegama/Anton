@@ -6,7 +6,8 @@ RUN apt-get update && \
                        libffi-dev \
                        libssl-dev \
                        git  \
-                       upx
+                       upx && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install pyinstaller \
                            tinyaes \

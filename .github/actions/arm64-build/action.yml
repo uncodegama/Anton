@@ -1,7 +1,0 @@
-name: Build ARMx64 Version
-description: Builds ARMx64 version of Anton in docker
-author: uncodegama <unculkodegama@yahoo.com>
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
