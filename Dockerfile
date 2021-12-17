@@ -17,7 +17,7 @@ COPY . ./Anton/
 
 WORKDIR Anton
 
-RUN export FLIT_ROOT_INSTALL=1
+CMD export FLIT_ROOT_INSTALL=1
 
 RUN flit install
 
