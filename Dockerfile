@@ -13,7 +13,7 @@ RUN python3 -m pip install pyinstaller \
                            tinyaes \
                            flit
 
-COPY . .
+COPY .github/actions/arm64-build .
 
 #WORKDIR $PROJECT_NAME
 #
