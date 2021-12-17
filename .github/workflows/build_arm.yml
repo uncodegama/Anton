@@ -14,7 +14,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Build
         id: build
-        uses: actions/arm64-build@main
+        uses: ./.github/actions/arm64-build
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
