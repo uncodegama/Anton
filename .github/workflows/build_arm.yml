@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         with:
@@ -17,7 +20,7 @@ jobs:
       - name: Build
         id: build
         run: |
-          - docker buildx build ./.github/actions/arm64-build/Dockerfile --platform linux/amd64
+          - docker build --platform linux/amd64 ./.github/actions/arm64-build/Dockerfile 
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
