@@ -23,10 +23,11 @@ jobs:
 
       - name: Build
         run: |
-          docker build --platform linux/amd64 -t anton --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} .
+          docker build --platform linux/amd64 -t anton --name anton --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} .
 
       - name: Export Dist
         run: |
+          docker ps
           docker exec anton ls
           docker cp anton:Anton/dist/Anton "./Anton"
 
