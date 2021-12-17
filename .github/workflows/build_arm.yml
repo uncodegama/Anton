@@ -27,7 +27,7 @@ jobs:
 
       - name: Export Dist
         run: |
-          docker exex anton ls
+          docker exec anton ls
           docker cp anton:Anton/dist/Anton "./Anton"
 
       - name: Upload Artifacts
