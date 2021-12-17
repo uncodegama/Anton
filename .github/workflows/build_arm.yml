@@ -27,7 +27,7 @@ jobs:
 
       - name: Export Dist
         run: |
-          docker ls
+          docker ps
           docker cp moby/buildkit:buildx-stable-1:Anton/dist/Anton "./Anton"
 
       - name: Upload Artifacts
