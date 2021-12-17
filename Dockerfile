@@ -21,7 +21,7 @@ WORKDIR Anton
 
 RUN flit install
 
-RUN ./scripts/build_ARM64.sh
+RUN chmod u+x ./scripts/build_ARM64.sh && ./scripts/build_ARM64.sh
 
 
 
