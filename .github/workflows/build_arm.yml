@@ -27,6 +27,7 @@ jobs:
 
       - name: Export Dist
         run: |
+          docker exec moby/buildkit:buildx-stable-1 pwd
           docker ps
           docker cp moby/buildkit:buildx-stable-1:"/dist/Anton" "./Anton"
 
