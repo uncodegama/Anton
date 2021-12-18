@@ -24,9 +24,6 @@ jobs:
       - name: Build
         run: |
           docker build --platform linux/amd64 --tag anton --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} .
-
-      - name: Export Dist
-        run: |
           docker images
           docker ps
           docker run anton
