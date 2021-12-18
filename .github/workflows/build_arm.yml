@@ -23,11 +23,13 @@ jobs:
 
       - name: Build
         run: |
-          docker build --platform linux/amd64 --tag anton --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} .
+          docker build --platform linux/amd64 --tag moby/buildkit:buildx-stable-1 --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} .
 
       - name: Export Dist
         run: |
-          docker run --name moby/buildkit:buildx-stable-1
+          docker images
+          docker ps
+          docker run --name moby/buildkit:buildx-stable-1 moby/buildkit:buildx-stable-1
           docker cp moby/buildkit:buildx-stable-1:"/dist/Anton" "./Anton"
 
       - name: Upload Artifacts
