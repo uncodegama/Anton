@@ -29,8 +29,8 @@ jobs:
         run: |
           docker images
           docker ps
-          docker run --name moby/buildkit:buildx-stable-1 moby/buildkit:buildx-stable-1
-          docker cp moby/buildkit:buildx-stable-1:"/dist/Anton" "./Anton"
+          docker run --name moby/buildkit moby/buildkit
+          docker cp moby/buildkit:"/dist/Anton" "./Anton"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
