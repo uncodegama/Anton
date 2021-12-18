@@ -24,10 +24,11 @@ jobs:
       - name: Build
         run: |
           docker buildx build --platform linux/amd64 --tag anton:latest --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} --progress=plain --load .
+          docker run --name anton anton
+          docker ps
+          docker cp anton:"/dist/Anton" "./Anton"
           docker images
           docker ps
-          docker run anton
-          docker cp anton:"Anton/dist/Anton" "./Anton"
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
