@@ -4,7 +4,7 @@
   <a href="https://github.com/uncodegama/Anton"><img src="https://github.com/uncodegama/Anton/blob/master/static/Anton_logo.JPG?raw=true" alt="Anton"></a>
 </p>
 
-[![Test](https://github.com/uncodegama/Anton/actions/workflows/test.yml/badge.svg)](https://github.com/uncodegama/Anton/actions/workflows/test.yml) [![Current Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/uncodegama/Anton) [![Python Version](https://img.shields.io/badge/python-3.9-green)](https://www.python.org/downloads/release/python-396/) [![codecov](https://codecov.io/gh/uncodegama/Anton/branch/master/graph/badge.svg?token=695PV56G1V)](https://codecov.io/gh/uncodegama/Anton)
+[![Test](https://github.com/uncodegama/Anton/actions/workflows/test.yml/badge.svg)](https://github.com/uncodegama/Anton/actions/workflows/test.yml) [![Build ARM64](https://github.com/uncodegama/Anton/actions/workflows/build_arm.yml/badge.svg)](https://github.com/uncodegama/Anton/actions/workflows/build_arm.yml) [![Build Win10x64](https://github.com/uncodegama/Anton/actions/workflows/build_win.yml/badge.svg)](https://github.com/uncodegama/Anton/actions/workflows/build_win.yml) [![Current Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/uncodegama/Anton) [![Python Version](https://img.shields.io/badge/python-3.9-green)](https://www.python.org/downloads/release/python-396/) [![codecov](https://codecov.io/gh/uncodegama/Anton/branch/master/graph/badge.svg?token=695PV56G1V)](https://codecov.io/gh/uncodegama/Anton)
 
 ---
 "Everybody has Siri and Alexa, I'm going to have Anton!" - uncodegama

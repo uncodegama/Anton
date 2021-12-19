@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "OPEN_WEATHER_MAP_API_KEY = '${{ secrets.OPEN_WEATHER_MAP_API_KEY }}'" > ./anton/utils/constants.py
 
-      - name: Build & Copy out
+      - name: Build & Copy Out
         run: |
           docker buildx build --platform linux/amd64 --tag anton:latest --build-arg KEY=${{ secrets.PYI_BLOCK_CIPHER_KEY }} --progress=plain --load .
           docker create --name anton anton
