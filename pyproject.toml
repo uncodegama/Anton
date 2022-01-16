@@ -7,7 +7,7 @@ Home = "https://github.com/uncodegama/Anton"
 
 [project]
 name = "anton"
-version = "1.0.0"
+version = "1.1.0"
 description = """Unintuitive and unintelligent home assistant"""
 authors = [{ name = "uncodegama", email = "unculkodegama@yahoo.com" }]
 readme = "README.md"
@@ -40,6 +40,7 @@ dependencies = [
     "py==1.11.0",
     "pydantic==1.8.2",
     "pyparsing==2.4.7",
+    "psutil==5.9.0",
     "requests==2.26.0",
     "sniffio==1.2.0",
     "SQLAlchemy==1.4.26",

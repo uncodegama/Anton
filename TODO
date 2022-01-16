@@ -1,12 +1,11 @@
 #to-do:
 
-*pack + pass parameters
-
 #nice-to-have:
 *SQLAlchemy
 *automatize requirements.txt / .toml
 *git CI/CD - add more py versions
 *more pydantic https://www.youtube.com/watch?v=Vj-iU-8_xLs
+*add logging to APP start and end
 
 #to-think-about:
 *DB operations own static file? or per subproject?

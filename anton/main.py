@@ -1,5 +1,10 @@
+import os
+import psutil
+import time
+import threading
+
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 
 import anton.weatherapp.core.core as core
 from anton.utils.common import timer_run
@@ -10,8 +15,19 @@ from anton.weatherapp.endpoints.endpoints import weather
 
 def app():
     app = FastAPI(title="Anton v2.0", description="Backend for Anton application.")
-
     app.include_router(weather)
+
+    def self_terminate():
+        time.sleep(1)
+        parent = psutil.Process(os.getpid())
+        parent.kill()
+
+    @app.post("/kill",
+              description="Kills the uvicorn server.",
+              status_code=status.HTTP_200_OK)
+    async def kill():
+        threading.Thread(target=self_terminate, daemon=True).start()
+        return {"success": True}
 
     return app
 
