@@ -1,10 +1,11 @@
 import os
-import psutil
-import time
 import threading
+import time
 
+import psutil
 import uvicorn
 from fastapi import FastAPI, status
+from fastapi.middleware.cors import CORSMiddleware
 
 import anton.weatherapp.core.core as core
 from anton.utils.common import timer_run
@@ -22,12 +23,22 @@ def app():
         parent = psutil.Process(os.getpid())
         parent.kill()
 
-    @app.post("/kill",
-              description="Kills the uvicorn server.",
-              status_code=status.HTTP_200_OK)
+    @app.post(
+        "/kill", description="Kills the uvicorn server.", status_code=status.HTTP_200_OK
+    )
     async def kill():
         threading.Thread(target=self_terminate, daemon=True).start()
         return {"success": True}
+
+    origins = (["http://localhost:8080"],)
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     return app
 
