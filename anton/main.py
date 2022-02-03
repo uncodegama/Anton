@@ -30,7 +30,7 @@ def app():
         threading.Thread(target=self_terminate, daemon=True).start()
         return {"success": True}
 
-    origins = (["http://localhost:8080"],)
+    origins = ["http://localhost:8080"]
 
     app.add_middleware(
         CORSMiddleware,
