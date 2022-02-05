@@ -86,7 +86,7 @@ class TestDatabaseMethods:
         aud.create_db_file()
 
         # tables
-        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
+        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 3
 
         # location table
         assert len(aud.perform_db_operation(DATABASE_SELECT_ALL_TABLE_LOCATION)) == 4
