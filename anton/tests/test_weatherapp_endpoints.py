@@ -29,7 +29,7 @@ class TestWeatherAppEndpoints:
     def test_get_locations(self):
         response = self.client.get("weather/locations")
         assert response.status_code == 200
-        assert len(response.json()) == 5
+        assert len(response.json()) == 4
         assert response.json()[0]["location"] == "Brno"
         assert response.json()[0]["location"] != "brno"
         assert response.json()[0]["lat"] == "49.1922443"

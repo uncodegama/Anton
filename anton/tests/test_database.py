@@ -42,7 +42,7 @@ class TestDatabaseMethods:
 
         aud.create_db_file()
         assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
-        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
+        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 3
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_create_db_file_empty_db(self):
@@ -56,7 +56,7 @@ class TestDatabaseMethods:
         # fill data to existing db file
         aud.create_db_file()
         assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
-        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
+        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 3
 
     @pytest.mark.usefixtures("remove_db_file")
     def test_create_db_file_timestamp_update(self):
@@ -64,7 +64,7 @@ class TestDatabaseMethods:
 
         aud.create_db_file()
         assert aud.find_db_file(DATABASE_FILE_NAME) == self.path
-        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 2
+        assert aud.perform_db_operation(DATABASE_SELECT_ALL_TABLES)[0][0] == 3
 
         aud.perform_db_operation(self.DATABASE_UPDATE_OLD_TIMESTAMP)
         items = aud.perform_db_operation(DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER)
@@ -96,32 +96,32 @@ class TestDatabaseMethods:
         assert (
             len(
                 aud.perform_db_operation(
-                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, ("Brno",)
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, (1,)
                 )[0]
             )
-            == 6
+            == 7
         )
         assert (
             len(
                 aud.perform_db_operation(
-                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, ("Brno",)
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, (1,)
                 )[0]
             )
-            == 4
+            == 5
         )
         assert (
             len(
                 aud.perform_db_operation(
-                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, ("Brno",)
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, (1,)
                 )[0]
             )
-            == 4
+            == 5
         )
         assert (
             len(
                 aud.perform_db_operation(
-                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, ("Brno",)
+                    DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, (1,)
                 )[0]
             )
-            == 4
+            == 5
         )
