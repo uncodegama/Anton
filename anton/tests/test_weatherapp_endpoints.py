@@ -38,7 +38,7 @@ class TestWeatherAppEndpoints:
     def test_get_weather_forecasts(self):
         response = self.client.get("weather/forecasts")
         assert response.status_code == 200
-        assert len(response.json()) == 5
+        assert len(response.json()) == 4
 
     def test_get_weather_forecast_by_location(self):
         response = self.client.get("weather/forecasts/1")
