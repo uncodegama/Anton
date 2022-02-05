@@ -16,7 +16,7 @@ from anton.utils.static import (
 
 def call_open_weather_api_forecasts() -> None:
     try:
-        for loc, lat, lon in ad.perform_db_operation(
+        for id, loc, lat, lon in ad.perform_db_operation(
             DATABASE_SELECT_ALL_TABLE_LOCATION
         ):
             response = requests.get(
@@ -28,6 +28,7 @@ def call_open_weather_api_forecasts() -> None:
             ad.perform_db_operation(
                 DATABASE_INSERT_INTO_TABLE_WEATHER,
                 (
+                    id,
                     loc,
                     json.dumps(to_location_data(response.json())),
                     json.dumps(response.json()["current"]),

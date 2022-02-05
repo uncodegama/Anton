@@ -5,7 +5,8 @@ from pydantic.typing import List, Optional
 
 
 class WeatherForecastHourly(object):
-    def __init__(self, location, data, hourly, alerts):
+    def __init__(self, id, location, data, hourly, alerts):
+        self.id: int = id
         self.location: str = location
         self.data = json.loads(data)
         self.hourly = json.loads(hourly)
@@ -13,6 +14,7 @@ class WeatherForecastHourly(object):
 
 
 class WeatherForecastHourlyModel(BaseModel):
+    id: int = 1
     location: str = "Brno"
     data: dict = {
         "lat": 49.1922,

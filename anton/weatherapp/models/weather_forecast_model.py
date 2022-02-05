@@ -7,6 +7,7 @@ from pydantic.typing import List, Optional, Union
 class WeatherForecast(object):
     def __init__(
         self,
+        id: int,
         location: str,
         data: Union[str, bytes],
         current: Union[str, bytes],
@@ -14,6 +15,7 @@ class WeatherForecast(object):
         daily: Union[str, bytes],
         alerts: Union[str, bytes],
     ) -> None:
+        self.id = id
         self.location: str = location
         self.data = json.loads(data)
         self.current = json.loads(current)
@@ -23,6 +25,7 @@ class WeatherForecast(object):
 
 
 class WeatherForecastModel(BaseModel):
+    id: int = 1
     location: str = "Brno"
     data: dict = {
         "lat": 49.1922,

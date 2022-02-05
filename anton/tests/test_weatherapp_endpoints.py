@@ -15,6 +15,7 @@ class TestWeatherAppEndpoints:
 
     @staticmethod
     def assert_common_response(response):
+        assert response.json()["id"] == 1
         assert response.json()["location"] == "Brno"
         assert response.json()["location"] != "brno"
         assert response.json()["data"]["lat"] == "49.1922"
@@ -40,41 +41,41 @@ class TestWeatherAppEndpoints:
         assert len(response.json()) == 4
 
     def test_get_weather_forecast_by_location(self):
-        response = self.client.get("weather/forecasts/Brno")
+        response = self.client.get("weather/forecasts/1")
         assert response.status_code == 200
         assert len(response.json()) == 6
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_current(self):
-        response = self.client.get("weather/forecasts/Brno/current")
+        response = self.client.get("weather/forecasts/1/current")
         assert response.status_code == 200
         assert len(response.json()) == 4
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_hourly(self):
-        response = self.client.get("weather/forecasts/Brno/hourly")
+        response = self.client.get("weather/forecasts/1/hourly")
         assert response.status_code == 200
         assert len(response.json()) == 4
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_daily(self):
-        response = self.client.get("weather/forecasts/Brno/daily")
+        response = self.client.get("weather/forecasts/1/daily")
         assert response.status_code == 200
         assert len(response.json()) == 4
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_404(self):
-        response = self.client.get("weather/forecasts/Anton/daily")
+        response = self.client.get("weather/forecasts/99999")
         self.assert_not_found_response(response)
 
     def test_get_weather_forecast_by_location_current_404(self):
-        response = self.client.get("weather/forecasts/Anton/daily")
+        response = self.client.get("weather/forecasts/99999/current")
         self.assert_not_found_response(response)
 
     def test_get_weather_forecast_by_location_hourly_404(self):
-        response = self.client.get("weather/forecasts/Anton/daily")
+        response = self.client.get("weather/forecasts/99999/hourly")
         self.assert_not_found_response(response)
 
     def test_get_weather_forecast_by_location_daily_404(self):
-        response = self.client.get("weather/forecasts/Anton/daily")
+        response = self.client.get("weather/forecasts/99999/daily")
         self.assert_not_found_response(response)

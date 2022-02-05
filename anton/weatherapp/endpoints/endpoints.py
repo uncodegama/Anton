@@ -59,27 +59,25 @@ async def get_weather_forecasts():
 
 
 @weather.get(
-    "/forecasts/{location}",
+    "/forecasts/{id}",
     response_model=WeatherForecastModel,
-    description="Returns weather forecast (current, hourly, daily) for given location.",
+    description="Returns weather forecast (current, hourly, daily) for given id.",
 )
-async def get_weather_forecast_by_location(location: str) -> WeatherForecast:
-    query = perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, (location,))
+async def get_weather_forecast_by_location(id: int) -> WeatherForecast:
+    query = perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER, (id,))
     if not query:
         raise HTTPException(status_code=404, detail="Forecast not found.")
     return WeatherForecast(*query[0])
 
 
 @weather.get(
-    "/forecasts/{location}/current",
+    "/forecasts/{id}/current",
     response_model=WeatherForecastCurrentModel,
-    description="Returns current weather forecast for given location. {1}",
+    description="Returns current weather forecast for given id. {1}",
 )
-async def get_weather_forecast_by_location_current(
-    location: str,
-) -> WeatherForecastCurrent:
+async def get_weather_forecast_by_location_current(id: int) -> WeatherForecastCurrent:
     query = perform_db_operation(
-        DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, (location,)
+        DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT, (id,)
     )
     if not query:
         raise HTTPException(status_code=404, detail="Forecast not found.")
@@ -87,15 +85,13 @@ async def get_weather_forecast_by_location_current(
 
 
 @weather.get(
-    "/forecasts/{location}/hourly",
+    "/forecasts/{id}/hourly",
     response_model=WeatherForecastHourlyModel,
-    description="Returns hourly weather forecast for given location, for 48 hours. [{48}]",
+    description="Returns hourly weather forecast for given id, for 48 hours. [{48}]",
 )
-async def get_weather_forecast_by_location_hourly(
-    location: str,
-) -> WeatherForecastHourly:
+async def get_weather_forecast_by_location_hourly(id: int) -> WeatherForecastHourly:
     query = perform_db_operation(
-        DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, (location,)
+        DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_HOURLY, (id,)
     )
     if not query:
         raise HTTPException(status_code=404, detail="Forecast not found.")
@@ -103,14 +99,12 @@ async def get_weather_forecast_by_location_hourly(
 
 
 @weather.get(
-    "/forecasts/{location}/daily",
+    "/forecasts/{id}/daily",
     response_model=WeatherForecastDailyModel,
-    description="Returns daily weather forecast for given location, for 7 days (today included). [{8}]",
+    description="Returns daily weather forecast for given id, for 7 days (today included). [{8}]",
 )
-async def get_weather_forecast_by_location_daily(location: str) -> WeatherForecastDaily:
-    query = perform_db_operation(
-        DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, (location,)
-    )
+async def get_weather_forecast_by_location_daily(id: int) -> WeatherForecastDaily:
+    query = perform_db_operation(DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY, (id,))
     if not query:
         raise HTTPException(status_code=404, detail="Forecast not found.")
     return WeatherForecastDaily(*query[0])
