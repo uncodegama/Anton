@@ -29,7 +29,7 @@ class TestWeatherAppEndpoints:
     def test_get_locations(self):
         response = self.client.get("weather/locations")
         assert response.status_code == 200
-        assert len(response.json()) == 4
+        assert len(response.json()) == 5
         assert response.json()[0]["location"] == "Brno"
         assert response.json()[0]["location"] != "brno"
         assert response.json()[0]["lat"] == "49.1922443"
@@ -38,30 +38,30 @@ class TestWeatherAppEndpoints:
     def test_get_weather_forecasts(self):
         response = self.client.get("weather/forecasts")
         assert response.status_code == 200
-        assert len(response.json()) == 4
+        assert len(response.json()) == 5
 
     def test_get_weather_forecast_by_location(self):
         response = self.client.get("weather/forecasts/1")
         assert response.status_code == 200
-        assert len(response.json()) == 6
+        assert len(response.json()) == 7
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_current(self):
         response = self.client.get("weather/forecasts/1/current")
         assert response.status_code == 200
-        assert len(response.json()) == 4
+        assert len(response.json()) == 5
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_hourly(self):
         response = self.client.get("weather/forecasts/1/hourly")
         assert response.status_code == 200
-        assert len(response.json()) == 4
+        assert len(response.json()) == 5
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_daily(self):
         response = self.client.get("weather/forecasts/1/daily")
         assert response.status_code == 200
-        assert len(response.json()) == 4
+        assert len(response.json()) == 5
         self.assert_common_response(response)
 
     def test_get_weather_forecast_by_location_404(self):
