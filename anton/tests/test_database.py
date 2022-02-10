@@ -7,7 +7,6 @@ import anton.utils.database as aud
 from anton.utils.static import (
     DATABASE_FILE_NAME,
     DATABASE_SELECT_ALL_TABLE_LOCATION,
-    DATABASE_SELECT_ALL_TABLE_WEATHER,
     DATABASE_SELECT_ALL_TABLES,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER,
     DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_CURRENT,
@@ -91,8 +90,6 @@ class TestDatabaseMethods:
         # location table
         assert len(aud.perform_db_operation(DATABASE_SELECT_ALL_TABLE_LOCATION)) == 4
 
-        # weather_predictions table
-        assert len(aud.perform_db_operation(DATABASE_SELECT_ALL_TABLE_WEATHER)) == 4
         assert (
             len(
                 aud.perform_db_operation(

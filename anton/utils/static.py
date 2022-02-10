@@ -31,9 +31,12 @@ DATABASE_INSERT_INTO_TABLE_WEATHER = """
 INSERT OR REPLACE INTO weather_forecasts (id, location, data, current, hourly, daily, alerts, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 """
 
-DATABASE_SELECT_ALL_TABLE_WEATHER = """
-SELECT id, location, data, current, hourly, daily, alerts FROM weather_forecasts
+DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER = """
+SELECT timestamp FROM weather_forecasts
 """
+
+########## WEATHER SINGLE ##########
+
 
 DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER = """
 SELECT id, location, data, current, hourly, daily, alerts FROM weather_forecasts WHERE id = (?)
@@ -51,8 +54,10 @@ DATABASE_SELECT_BY_LOCATION_TABLE_WEATHER_DAILY = """
 SELECT id, location, data, daily, alerts FROM weather_forecasts WHERE id = (?)
 """
 
-DATABASE_SELECT_TIMESTAMPS_TABLE_WEATHER = """
-SELECT timestamp FROM weather_forecasts
+########## WEATHER ALL ##########
+
+DATABASE_SELECT_TABLE_WEATHER_CURRENTS = """
+SELECT id, location, data, current, alerts FROM weather_forecasts
 """
 
 ########## LOCATION ##########
