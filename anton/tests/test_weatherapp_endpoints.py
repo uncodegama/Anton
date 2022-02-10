@@ -35,11 +35,6 @@ class TestWeatherAppEndpoints:
         assert response.json()[0]["lat"] == "49.1922443"
         assert response.json()[0]["lon"] == "16.6113382"
 
-    def test_get_weather_forecasts(self):
-        response = self.client.get("weather/forecasts")
-        assert response.status_code == 200
-        assert len(response.json()) == 4
-
     def test_get_weather_forecast_by_location(self):
         response = self.client.get("weather/forecasts/1")
         assert response.status_code == 200
